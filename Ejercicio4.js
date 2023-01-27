@@ -124,14 +124,25 @@ function convertirString(arr) {
 
 // console.log(horasDesarrollo);
 
-// // Segunda solución
-// // Creamos una variable donde almacenamos las tareas superiores a 25 horas
-// // IMPORTANTE --> Estos metodos no modifican el array original, nos devulven una copia
+// Segunda solución
+// Creamos una variable donde almacenamos las tareas superiores a 25 horas
+// IMPORTANTE --> Estos metodos no modifican el array original, nos devulven una copia
 const tareas = programadores.map((programador) => {
   // // Con map() nos devuelve los programadores cuyas tareas filtradas superen mas de 25 horas
   return programador.tareas.filter((tarea) => {
     // // Hacemos uso del metodo convertirString() para pasar a enteros las cadenas de texto que representan las horas
     return convertirString(tarea.tiempoDesarrollo) > 25;
   });
+
+  // // Si quisieramos simplificarlo a una linea se veria de la siguiente forma
+  // // return programador.tareas.filter((tarea) => convertirString(tarea.tiempoDesarrollo) > 25);
 });
+
+// De esta forma limpiamos el array que nos devuelve el filter con elementos vacíos.
+let tareasComplejas = tareas.filter((tarea) => tarea.length > 0);
+
+// Aquí se mostrara un array con elementos vacios ya que no han cumplido la condición
 console.log(tareas);
+
+// Aquí ya se han filtrado esos elementos vacios y solo se mostraran aquellas tareas que han cumplido la condición.
+console.log(tareasComplejas);
