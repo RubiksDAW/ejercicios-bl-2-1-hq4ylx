@@ -15,7 +15,11 @@ let programadores = [
         idTarea: 1.2,
         tiempoDesarrollo: '10 horas',
       },
-      { nombreTarea: 'Tarea 1.3', idTarea: 1.3, tiempoDesarrollo: '2 horas' },
+      {
+        nombreTarea: 'Tarea 1.3',
+        idTarea: 1.3,
+        tiempoDesarrollo: '2 horas',
+      },
       {
         nombreTarea: 'Tarea 1.4',
         idTarea: 1.4,
@@ -86,3 +90,33 @@ let programadores = [
     ],
   },
 ];
+
+// Primera solución
+
+// Al igual que en el ejercicio anterior hacemos uso de los operadores de  control de flujo
+// para ir recorriendo el array de programadores y posteriormente el array de tareas que tienen asignados
+// como propiedad
+
+// for (let i = 0; i < programadores.length; i++) {
+//   const tareas = programadores[i].tareas;
+
+//   for (let u = 0; u < tareas.length; u++) {
+//     tareas[u].tiempoDesarrollo = 0;
+
+//   }
+// }
+
+// console.log(programadores);
+
+// Segunda solución
+
+// Podríamos hacer uso del metodo map() para recorrer el array de programadores y volver a utilizarlo para recorrer el array de tareas
+// asociado y así modificar el tiempo de desarrollo de las tareas
+
+programadores.map((programador) => {
+  programador.tareas.map((tarea) => {
+    tarea.tiempoDesarrollo = 0;
+  });
+});
+
+console.log(programadores);

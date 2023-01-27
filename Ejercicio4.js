@@ -15,7 +15,11 @@ let programadores = [
         idTarea: 1.2,
         tiempoDesarrollo: '10 horas',
       },
-      { nombreTarea: 'Tarea 1.3', idTarea: 1.3, tiempoDesarrollo: '2 horas' },
+      {
+        nombreTarea: 'Tarea 1.3',
+        idTarea: 1.3,
+        tiempoDesarrollo: '2 horas',
+      },
       {
         nombreTarea: 'Tarea 1.4',
         idTarea: 1.4,
@@ -86,3 +90,48 @@ let programadores = [
     ],
   },
 ];
+
+// // Primera solución
+
+// // Declaramos una variable donde guardaremos un array de todas las horas de las tareas de desarrollo
+// let horasDesarrollo = [];
+
+// // Recorremos con un primer bucle a nuestros programadores uno por uno
+
+// Declaramos esta funcion para convertir una string a numero, usando el espacio como valor del metodo split
+function convertirString(arr) {
+  let espacio = ' ';
+
+  let horas = arr.split(espacio);
+
+  return Number(horas[0]);
+}
+
+// for (let i = 0; i < programadores.length; i++) {
+//   const tareas = programadores[i].tareas;
+
+//   //   Con este segundo bucle recorremos las tareas que hemos ido almacenando en tareas
+//   for (let u = 0; u < tareas.length; u++) {
+//     // Guardamos en la variable hora la cadena de texto en la que se indican las horas de desarrollo convertida a numero entero
+//     // suponemos que el formato es siempre el mismo " XX horas".
+//     const hora = convertirString(tareas[u].tiempoDesarrollo);
+
+//     if (hora > 25) {
+//       horasDesarrollo.push(tareas[u]);
+//     }
+//   }
+// }
+
+// console.log(horasDesarrollo);
+
+// // Segunda solución
+// // Creamos una variable donde almacenamos las tareas superiores a 25 horas
+// // IMPORTANTE --> Estos metodos no modifican el array original, nos devulven una copia
+const tareas = programadores.map((programador) => {
+  // // Con map() nos devuelve los programadores cuyas tareas filtradas superen mas de 25 horas
+  return programador.tareas.filter((tarea) => {
+    // // Hacemos uso del metodo convertirString() para pasar a enteros las cadenas de texto que representan las horas
+    return convertirString(tarea.tiempoDesarrollo) > 25;
+  });
+});
+console.log(tareas);

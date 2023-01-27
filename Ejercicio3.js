@@ -15,7 +15,11 @@ let programadores = [
         idTarea: 1.2,
         tiempoDesarrollo: '10 horas',
       },
-      { nombreTarea: 'Tarea 1.3', idTarea: 1.3, tiempoDesarrollo: '2 horas' },
+      {
+        nombreTarea: 'Tarea 1.3',
+        idTarea: 1.3,
+        tiempoDesarrollo: '2 horas',
+      },
       {
         nombreTarea: 'Tarea 1.4',
         idTarea: 1.4,
@@ -86,3 +90,41 @@ let programadores = [
     ],
   },
 ];
+
+// Primera solución
+
+// for (let i = 0; i < programadores.length; i++) {
+//   if (programadores[i].nombre == "Manuel") {
+//     const tareas = programadores[i].tareas;
+
+//     for (let u = 0; u < tareas.length; u++) {
+//         if(tareas[u].idTarea == 4.2 || tareas[u].idTarea == 4.3){
+//             tareas[u].tiempoDesarrollo = 0;
+//         }else{
+//             continue
+//         }
+//     }
+//   }else{
+//     continue
+//   }
+// }
+
+// console.log(programadores)
+
+// Segunda solución
+
+// Especificando el [0] nos quedamos con el primer elemento del array que nos devuelve el metodo filter
+const manuel = programadores.filter((m) => m.nombre == 'Manuel')[0];
+
+manuel.tareas = manuel.tareas.map((tarea) => {
+  // Comprobamos si la tarea cumple con el requisito asignado del id
+  // si lo cumple modifica el tiempo de desarrollo
+  // una vez comprobado devuelve la tarea
+  if (tarea.idTarea == 4.2 || tarea.idTarea == 4.3) {
+    tarea.tiempoDesarrollo = 0;
+  }
+
+  return tarea;
+});
+
+console.log(manuel);
