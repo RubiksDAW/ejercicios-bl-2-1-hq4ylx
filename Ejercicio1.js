@@ -165,8 +165,8 @@ let programadores = [
 
 // El metodo reduce procesa cada elemento de un array y lo reduce a uno
 // En este caso programador representa al tipo de objeto almacenado en el array de programadores
-// Math.max() podemos devolver el numero maximo dentro de un conjunto de valores. PREGUNTAR SOBRE ...
-const horaMaximaDevelopmenthora = Math.max(
+// Math.max() podemos devolver el numero maximo dentro de un conjunto de valores. PREGUNTAR SOBRE ... (SIGNIFICA QUE SE LE VAN A PASAR N PARAMETROS)
+const horaMaximaDevelopment = Math.max(
   ...programadores.map((programador) => {
     return programador.tareas.reduce((horaMaxima, tarea) => {
       // Guardamos en la variable hora las horas una vez extraido el numero de la cadena (suponemos que el formato de la cadena es siempre "XX horas")
@@ -181,4 +181,4 @@ const horaMaximaDevelopmenthora = Math.max(
   })
 );
 
-console.log(horaMaximaDevelopmenthora);
+console.log(horaMaximaDevelopment);
